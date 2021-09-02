@@ -1,0 +1,21 @@
+Logical Reasoning:
+
+A watch, which loses time uniformly, was observed to be 5 minutes fast at 8.00 p.m. on Thursday. It was noticed to be 7 minutes slow at 8.00 a.m. on the subsequent Monday. When did the watch show the correct time? Explanation needed.
+
+a) 7 a.m. Saturday b) 7 a.m. on Friday
+c) 10a.m. on Sunday d) 11 a.m. on Friday
+
+The answer is a) 7 a.m. Saturday. The following are explanations:
+Since the watch is 5 minutes fast at 8.00 p.m. on Thursday and 7 minutes slow at 8.00 a.m. on the subsequent Monday,
+we know the watch lost 12 minutes in 3.5 days.
+3.5 days = 3.5 x 24 = 84 hours
+The rate = 12min/ 84h = 1min/7hour
+Therefore, the watch loses time at a rate of 1min per 7 hours. In other words, every 7 hours, the watch loses 1minite of time.
+In order to make the watch show the correct time, the watch needs to lose 5 minutes.
+7 hours x 5 = 35 hours. 
+8.00 p.m. on Thursday + 35 hours = 8.00 p.m. on Friday + 11 hours = 0.00 a.m. on Saturday + 7 hours = 7 a.m. Saturday 
+
+
+
+
+
