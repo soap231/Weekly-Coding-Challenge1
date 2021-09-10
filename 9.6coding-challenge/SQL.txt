@@ -1,0 +1,60 @@
+CREATE TABLE Employees(
+   WORKER_ID   INT,
+   FIRST_NAME VARCHAR (20),
+   LAST_NAME VARCHAR (20),
+   SALARY   DECIMAL (18, 2),  
+   JOINING_DATE timestamp,
+   DEPARTMENT VARCHAR (20),
+   PRIMARY KEY (WORKER_ID)
+);
+
+insert into Employees values (1, 'Rick','Smith', 100000, '2021-02-20 09:00:00', 'HR');
+insert into Employees values (2, 'Sam',	'Williams', 80000,'2021-06-11 09:00:00',  'Admin');
+insert into Employees values (3, 'John',	'Brown', 300000, '2021-02-20 09:00:00', 'HR');
+insert into Employees values (4, 'Amy',	'Jones', 500000, '2021-02-20 09:00:00', 'Admin');
+insert into Employees values (5, 'Sean',	'Garcia', 500000, '2021-06-11 09:00:00', 'Admin');
+insert into Employees values (6, 'Ryan',	'Miller', 200000,  '2021-06-11 09:00:00', 'Account');
+insert into Employees values (7, 'Patty',	'Davis', 75000, '2021-01-20 09:00:00','Account');
+insert into Employees values (8, 'Monica', 'Rodriguez', 90000, '2021-04-11 09:00:00','Admin');
+
+CREATE TABLE Bonus(
+	WORKER_REF_ID INT references Employees(WORKER_ID),
+	Bonus_DATE	 timestamp,
+	BONUS_AMOUNT DECIMAL (18, 2)
+);
+
+insert  into Bonus(WORKER_REF_ID, Bonus_DATE, BONUS_AMOUNT) values
+(1, '2021-02-20 00:00:00', 5000), 
+(2, '2021-06-11 00:00:00', 3000),
+(3, '2021-02-20 00:00:00', 4000),
+(1, '2021-02-20 00:00:00', 4500),
+(2, '2021-06-11 00:00:00', 3500);
+
+CREATE TABLE Title(
+	WORKER_REF_ID INT references Employees(WORKER_ID),
+	WORKER_TITLE VARCHAR (20),
+	AFFECTED_FROM timestamp
+);
+
+// a)
+select FIRST_NAME, LAST_NAME  from Employees where SALARY >= 50000 and SALARY <= 100000;
+
+// b)
+select DEPARTMENT, count(*) from Employees group by DEPARTMENT order by count(*) desc;
+
+// c)
+select * from Employees inner join Bonus on WORKER_ID = WORKER_REF_ID;
+
+// d)
+select SALARY from (
+select SALARY, dense_rank() 
+over(order by SALARY desc) r
+from  Employees) highest
+where r=5;
+
+
+//helper 
+drop table Employees
+drop table Bonus
+drop table Title
+select * from Bonus;
